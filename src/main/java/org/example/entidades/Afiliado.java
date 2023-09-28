@@ -1,5 +1,7 @@
 package org.example.entidades;
 
+import org.example.validaciones.ValidacionAfiliado;
+
 import java.time.LocalDate;
 
 public class Afiliado {
@@ -13,6 +15,7 @@ public class Afiliado {
     private  Integer departamento;
     private  String correoElectronico;
     private String telefono;
+    ValidacionAfiliado validacionAfiliado=new ValidacionAfiliado();
 
     public Afiliado() {
     }
@@ -33,8 +36,14 @@ public class Afiliado {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer id){
+        try {
+            this.validacionAfiliado.validarId(id);
+            this.id=id;
+            System.out.println("Id cargado con exito en la BD");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getDocumento() {
@@ -42,7 +51,13 @@ public class Afiliado {
     }
 
     public void setDocumento(String documento) {
-        this.documento = documento;
+        try {
+            this.validacionAfiliado.validarDocumento(documento);
+            this.documento=documento;
+            System.out.println("Documento cargado con exito en nuestra BD");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getNombres() {
@@ -50,7 +65,13 @@ public class Afiliado {
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        try {
+            this.validacionAfiliado.validarNombres(nombres);
+            this.documento=documento;
+            System.out.println("Nombre Ingresado con exito en nuestra BD");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getApellidos() {
@@ -58,7 +79,13 @@ public class Afiliado {
     }
 
     public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+        try {
+            this.validacionAfiliado.validarApellidos(apellidos);
+            this.apellidos=apellidos;
+            System.out.println("Apellido ingresado con exito en nuestra BD");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public LocalDate getFechaNacimiento() {
@@ -74,7 +101,12 @@ public class Afiliado {
     }
 
     public void setCiudad(Integer ciudad) {
-        this.ciudad = ciudad;
+        try {
+            this.validacionAfiliado.validarCiudad(ciudad);
+            this.ciudad=ciudad;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Integer getDepartamento() {
@@ -82,7 +114,12 @@ public class Afiliado {
     }
 
     public void setDepartamento(Integer departamento) {
-        this.departamento = departamento;
+        try {
+         this.validacionAfiliado.validarDepartamento(departamento);
+         this.departamento=departamento;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getCorreoElectronico() {
@@ -90,7 +127,13 @@ public class Afiliado {
     }
 
     public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+        try {
+         this.validacionAfiliado.validarCorreo(correoElectronico);
+         this.correoElectronico=correoElectronico;
+            System.out.println("Correo ingresado con exito");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getTelefono() {
@@ -98,7 +141,13 @@ public class Afiliado {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        try {
+         this.validacionAfiliado.validarTelefono(telefono);
+         this.telefono=telefono;
+            System.out.println("Telefono ingresado con exito");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
 }

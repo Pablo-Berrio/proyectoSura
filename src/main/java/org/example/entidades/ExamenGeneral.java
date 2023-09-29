@@ -1,5 +1,7 @@
 package org.example.entidades;
 
+import org.example.validaciones.ValidacionExamenGeneral;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -9,6 +11,7 @@ public class ExamenGeneral {
     private String nombreExamen;
     private LocalDate fechaExamen;
     private String imagenExamen;
+    ValidacionExamenGeneral validacionExamenGeneral=new ValidacionExamenGeneral();
 
     public ExamenGeneral() {
     }
@@ -25,7 +28,12 @@ public class ExamenGeneral {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        try {
+            this.validacionExamenGeneral.validarId(id);
+            this.id=id;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getNombreExamen() {
@@ -33,7 +41,12 @@ public class ExamenGeneral {
     }
 
     public void setNombreExamen(String nombreExamen) {
-        this.nombreExamen = nombreExamen;
+        try {
+            this.validacionExamenGeneral.validarNombreExamen(nombreExamen);
+            this.nombreExamen=nombreExamen;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public LocalDate getFechaExamen() {
@@ -49,7 +62,12 @@ public class ExamenGeneral {
     }
 
     public void setImagenExamen(String imagenExamen) {
-        this.imagenExamen = imagenExamen;
+        try {
+            this.validacionExamenGeneral.validarImagenExamen(imagenExamen);
+            this.imagenExamen=imagenExamen;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
 }

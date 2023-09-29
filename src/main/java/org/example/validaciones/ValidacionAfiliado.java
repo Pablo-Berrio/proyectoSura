@@ -23,7 +23,7 @@ public class ValidacionAfiliado {
             throw new Exception("el nombre debe tener entre 3 y 40 caracteres");
         }
 
-        String expresionRegular="^[a-zA-Z]+$";
+        String expresionRegular="^[a-zA-Z ]+$";
         if (!this.utilidad.buscarCoincidencia(expresionRegular,nombre)){
             throw new Exception("El nombre no cumple con el formato requerido, recuerda que debes tener solo letras");
         }
@@ -35,7 +35,7 @@ public class ValidacionAfiliado {
             throw new Exception("El apellido debe tener entre 10 y 50 caracteres");
         }
 
-        String expresionRegular="^[a-zA-Z]+$";
+        String expresionRegular="^[a-zA-Z ]+$";
         if (!this.utilidad.buscarCoincidencia(expresionRegular,apellidos)){
             throw new Exception("El apellido no cumple con el formato requerido");
         }
@@ -59,6 +59,7 @@ public class ValidacionAfiliado {
             throw new Exception("Ingresa un numero positivo y menor o igual a 1123");
         }
         return true;
+
     }
 
     public Boolean validarDepartamento(Integer departamento)throws Exception{

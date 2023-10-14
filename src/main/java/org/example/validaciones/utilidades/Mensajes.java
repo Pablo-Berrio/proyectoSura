@@ -1,6 +1,7 @@
 package org.example.validaciones.utilidades;
 
 public enum Mensajes {
+
     ID_NEGATIVO("El id no puede ser negativo"),
 
     NOMBRES_LONGITUD("el nombre debe tener entre 3 y 40 caracteres"),
@@ -21,6 +22,7 @@ public enum Mensajes {
     TELEFONO_LONGITUD("Tu telefono debe tener exactamente 10 digitos porque estamos en colombia mi amigo"),
     TELEFONO_FORMATO("Debes ingresar solo numeros")
     ;
+
 
     private String Mensaje;
 

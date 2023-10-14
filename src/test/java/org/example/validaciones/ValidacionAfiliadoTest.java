@@ -1,6 +1,7 @@
 package org.example.validaciones;
 
 import org.example.entidades.Afiliado;
+import org.example.validaciones.utilidades.Mensajes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ class ValidacionAfiliadoTest {
     public void ValidarIdIncorrecto(){
         Integer idPrueba = -50;
         Exception resultado = Assertions.assertThrows(Exception.class,()->this.validacionAfiliado.validarId(idPrueba));
-        Assertions.assertEquals("El id no puede ser negativo",resultado.getMessage());
+        Assertions.assertEquals(Mensajes.ID_NEGATIVO.getMensaje(),resultado.getMessage());
     }
 
     @Test

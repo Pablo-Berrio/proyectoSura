@@ -1,5 +1,6 @@
 package org.example.validaciones;
 
+import org.example.validaciones.utilidades.Mensajes;
 import org.example.validaciones.utilidades.Utilidad;
 
 import java.util.regex.Matcher;
@@ -13,7 +14,7 @@ public class ValidacionAfiliado {
 
     public Boolean validarId(Integer id) throws Exception{
         if(id<0){
-            throw new Exception("El id no puede ser negativo");
+            throw new Exception(Mensajes.ID_NEGATIVO.getMensaje());
         }
         return true;
     }

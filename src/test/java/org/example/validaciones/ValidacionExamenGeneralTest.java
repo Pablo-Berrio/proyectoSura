@@ -16,7 +16,7 @@ public class ValidacionExamenGeneralTest {
     @Test
     public void validarIdCorrecto(){
         Integer idPrueba=0;
-        Boolean resultado= Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarId(idPrueba);
+        Boolean resultado= Assertions.assertDoesNotThrow(()->this.validacionExamenGeneral.validarId(idPrueba));
         Assertions.assertTrue(resultado);
     }
 
@@ -44,7 +44,7 @@ public class ValidacionExamenGeneralTest {
     @Test
     public void validarNombreIncorrectoLongitud(){
         String nombrePrueba="examendet";
-        Exception resultado=Assertions.assertThrows((Exception.class,()->this.validacionExamenGeneral.validarNombreExamen(nombrePrueba));
+        Exception resultado=Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarNombreExamen(nombrePrueba));
         Assertions.assertEquals("El nombre del examen debe tener entre 10 y 150 caracteres",resultado);
     }
 
@@ -56,6 +56,7 @@ public class ValidacionExamenGeneralTest {
 
     @Test
     public void validarImagenIncorrecta(){
+//        INCOMPLETO
         String nombrePrueba="";
     }
 

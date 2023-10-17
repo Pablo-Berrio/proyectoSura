@@ -1,5 +1,6 @@
 package org.example.validaciones;
 
+import org.example.validaciones.utilidades.Mensajes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ public class ValidacionExamenGeneralTest {
     public void validarIdIncorrecto(){
         Integer idPrueba=-50;
         Exception resultado=Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarId(idPrueba));
-        Assertions.assertEquals("Tu id debe ser positivo",resultado.getMessage());
+        Assertions.assertEquals(Mensajes.ID_NEGATIVO.getMensaje(),resultado.getMessage());
     }
 
     @Test
@@ -38,26 +39,27 @@ public class ValidacionExamenGeneralTest {
     public void validarNombreIncorrectoTipoCaracteres(){
         String nombrePrueba="juan125*/.#";
         Exception resultado=Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarNombreExamen(nombrePrueba));
-        Assertions.assertEquals("Recuerda que debes ingresar solo letras en este campo",resultado);
+        Assertions.assertEquals(Mensajes.NOMBRES_FORMATO.getMensaje(),resultado.getMessage());
     }
 
     @Test
     public void validarNombreIncorrectoLongitud(){
         String nombrePrueba="examendet";
         Exception resultado=Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarNombreExamen(nombrePrueba));
-        Assertions.assertEquals("El nombre del examen debe tener entre 10 y 150 caracteres",resultado);
+        Assertions.assertEquals(Mensajes.NOMBRE_EXAMEN_LONGITUD.getMensaje(),resultado.getMessage());
     }
 
     @Test
-    public void validarImagenExamenCorrecta(){
+    public void validarImagenCorrecta(){
         String nombrePrueba="https/www.imagenexmaen.png*/.3.com%";
         Boolean resultado=Assertions.assertDoesNotThrow(()->this.validacionExamenGeneral.validarImagenExamen(nombrePrueba));
     }
 
     @Test
     public void validarImagenIncorrecta(){
-//        INCOMPLETO
-        String nombrePrueba="";
+        String nombrePrueba="LoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsumLoremIpsuml";
+        Exception resultado=Assertions.assertThrows(Exception.class,()->this.validacionExamenGeneral.validarImagenExamen(nombrePrueba));
+        Assertions.assertEquals(Mensajes.IMAGEN_EXAMEN.getMensaje(),resultado.getMessage());
     }
 
 }

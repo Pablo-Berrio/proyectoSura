@@ -1,5 +1,6 @@
 package org.example.validaciones;
 
+import org.example.validaciones.utilidades.Mensajes;
 import org.example.validaciones.utilidades.Utilidad;
 
 public class ValidacionExamenGeneral {
@@ -11,7 +12,7 @@ public class ValidacionExamenGeneral {
 
     public Boolean validarId(Integer id)throws Exception{
         if (id<0){
-            throw new Exception("Tu id debe ser positivo");
+            throw new Exception(Mensajes.ID_NEGATIVO.getMensaje());
         }
         return true;
     }
@@ -19,18 +20,18 @@ public class ValidacionExamenGeneral {
     public Boolean validarNombreExamen(String nombreExamen)throws Exception{
         String expresionRegular="^[a-zA-Z ]+$";
         if (!this.utilidad.buscarCoincidencia(expresionRegular,nombreExamen)){
-            throw new Exception("Recuerda que debes ingresar solo letras en este campo");
+            throw new Exception(Mensajes.NOMBRES_FORMATO.getMensaje());
         }
 
         if (nombreExamen.length()<10 || nombreExamen.length()>150){
-            throw new Exception("El nombre del examen debe tener entre 10 y 150 caracteres");
+            throw new Exception(Mensajes.NOMBRE_EXAMEN_LONGITUD.getMensaje());
         }
         return true;
     }
 
     public Boolean validarImagenExamen(String imagenExamen)throws Exception{
         if (imagenExamen.length()>200){
-            throw new Exception("La longitud maxima para este campo es de 200 caracteres");
+            throw new Exception(Mensajes.IMAGEN_EXAMEN.getMensaje());
         }
         return true;
     }

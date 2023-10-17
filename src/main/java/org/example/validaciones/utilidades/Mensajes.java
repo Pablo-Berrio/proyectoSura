@@ -20,7 +20,9 @@ public enum Mensajes {
     CORREO_FORMATO("Debes ingresar un correo valido"),
 
     TELEFONO_LONGITUD("Tu telefono debe tener exactamente 10 digitos porque estamos en colombia mi amigo"),
-    TELEFONO_FORMATO("Debes ingresar solo numeros")
+    TELEFONO_FORMATO("Debes ingresar solo numeros"),
+    NOMBRE_EXAMEN_LONGITUD("El nombre del examen debe tener entre 10 y 150 caracteres"),
+    IMAGEN_EXAMEN("La longitud maxima para este campo es de 200 caracteres"),
     ;
 
 

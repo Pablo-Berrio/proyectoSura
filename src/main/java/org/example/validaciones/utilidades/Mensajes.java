@@ -23,6 +23,8 @@ public enum Mensajes {
     TELEFONO_FORMATO("Debes ingresar solo numeros"),
     NOMBRE_EXAMEN_LONGITUD("El nombre del examen debe tener entre 10 y 150 caracteres"),
     IMAGEN_EXAMEN("La longitud maxima para este campo es de 200 caracteres"),
+    NOMBRE_SIGNO_VITAL_LONGITUD("El nombre debe tener entre 10 y 100 letras"),
+    UNIDAD_MEIDAD_SIGNO_VITAL("La unidad de medida esta estandarizada en numeros positivos"),
     ;
 
 
